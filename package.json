@@ -3,13 +3,16 @@
   "private": true,
   "version": "0.1.0",
   "scripts": {
-    "build": "tsc",
+    "build": "tsup ./src/main.ts --format iife --minify",
     "copy-assets": "cpy --flat src/manifest.json dist/ && cpy --flat src/assets/icon-*.png dist/ && cpy --flat src/popup.html dist/",
+    "pack": "crx pack dist -o extension.crx",
     "clean": "rimraf dist"
   },
   "devDependencies": {
     "cpy-cli": "^5.0.0",
+    "crx": "^5.0.1",
     "rimraf": "^6.0.1",
+    "tsup": "^8.3.0",
     "typescript": "^5.5.3"
   }
 }
